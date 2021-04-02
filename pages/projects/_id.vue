@@ -10,10 +10,7 @@
       }}</nuxt-link>
     </h1>
     <div v-html="project.blurb"></div>
-    <datocms-structured-text
-      :data="project.content"
-      :renderBlock="renderBlock"
-    />
+    <!-- Slices -->
   </div>
 </template>
 

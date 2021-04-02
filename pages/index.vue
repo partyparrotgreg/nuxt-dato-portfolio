@@ -3,11 +3,11 @@
     <section class="hero">
       <div class="hero-body">
         <div class="container">
-          <div v-for="post in projects" v-bind:key="post.slug">
+          <div v-for="project in projects" v-bind:key="project.slug">
             <div class="columns">
               <div class="column is-8 is-offset-2">
                 <figure class="image">
-                  <datocms-image :data="post.cover.responsiveImage" />
+                  <datocms-image :data="project.cover.responsiveImage" />
                 </figure>
               </div>
             </div>
@@ -17,11 +17,11 @@
                 <div class="column is-8 is-offset-2">
                   <div class="content is-medium">
                     <h1 class="title">
-                      <nuxt-link :to="`/posts/${post.slug}`">{{
-                        post.name
+                      <nuxt-link :to="`/projects/${project.slug}`">{{
+                        project.name
                       }}</nuxt-link>
                     </h1>
-                    <div v-html="post.blurb" />
+                    <div v-html="project.blurb" />
                   </div>
                 </div>
               </div>
