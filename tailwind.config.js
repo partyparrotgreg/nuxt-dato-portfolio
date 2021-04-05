@@ -38,7 +38,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        '"IBM Plex Sans"',
+        'Space Grotesk',
         'system-ui',
         '-apple-system',
         'BlinkMacSystemFont',
@@ -53,16 +53,8 @@ module.exports = {
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"'
       ],
-      serif: [
-        '"IBM Plex Serif"',
-        'Georgia',
-        'Cambria',
-        '"Times New Roman"',
-        'Times',
-        'serif'
-      ],
+      serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: [
-        '"IBM Plex Mono"',
         'Menlo',
         'Monaco',
         'Consolas',
@@ -78,7 +70,7 @@ module.exports = {
       colors: {
         black: '#000',
         white: '#fff',
-        primary: '#0342E2'
+        primary: '#FF7F50'
       },
       spacing: {
         28: '7rem'

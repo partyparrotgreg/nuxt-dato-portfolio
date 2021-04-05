@@ -1,113 +1,51 @@
 <template>
-  <div>
-    <section class="hero">
-      <div class="hero-body">
-        <div class="container">
-          <div v-for="project in projects" v-bind:key="project.slug">
-            <div class="columns">
-              <div class="column is-8 is-offset-2">
-                <figure class="image">
-                  <datocms-image :data="project.cover.responsiveImage" />
-                </figure>
-              </div>
-            </div>
-
-            <section class="section">
-              <div class="columns">
-                <div class="column is-8 is-offset-2">
-                  <div class="content is-medium">
-                    <h1 class="title">
-                      <nuxt-link :to="`/projects/${project.slug}`">{{
-                        project.name
-                      }}</nuxt-link>
-                    </h1>
-                    <div v-html="project.blurb" />
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <div class="is-divider" />
+  <main class="page-index px-8 sm:px-16">
+    <div class="max-w-4xl mt-32 mb-20">
+      <p class="text-3xl leading-relaxed">
+        Hello! I'm Greg &mdash; a multidisciplinary visual designer with the
+        current focus on digital product design delivering high quality mobile
+        and web apps to the market.
+      </p>
+      <p class="text-xl text-primary mt-16">
+        Currently looking for remote gigs within EU and APAC.
+      </p>
+    </div>
+    <section>
+      <article
+        v-for="(project, index) in projects"
+        v-bind:key="project.slug"
+        class="flex h-screen"
+        :class="index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'"
+      >
+        <nuxt-link
+          class="w-1/2 flex justify-center align-middle items-center"
+          :to="`/projects/${project.slug}`"
+        >
+          <figure>
+            <datocms-image :data="project.cover.responsiveImage" />
+          </figure>
+        </nuxt-link>
+        <div class="w-1/2 flex justify-center align-middle items-center">
+          <div class="object-center w-3/5 space-y-2  flex-col">
+            <nuxt-link :to="`/projects/${project.slug}`">
+              <small>{{ project.role.company.name }}</small>
+              <h2 class="text-3xl font-semibold">
+                {{ project.name }}
+              </h2>
+            </nuxt-link>
+            <div v-html="project.blurb" />
           </div>
         </div>
-      </div>
+      </article>
     </section>
-
-    <!-- newsletter -->
-    <section class="section">
-      <div class="columns">
-        <div class="column is-10 is-offset-1">
-          <div class="container has-text-centered is-fluid">
-            <div class="hero is-light">
-              <div class="hero-body">
-                <h2 class="title is-4">Sign up for our newsletter</h2>
-                <div class="column is-6 is-offset-3">
-                  <div class="field has-addons has-addons-centered">
-                    <div class="control is-expanded">
-                      <input
-                        class="input"
-                        type="text"
-                        placeholder="Email address"
-                      />
-                    </div>
-                    <div class="control">
-                      <a class="button is-info">
-                        Subscribe
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Articles -->
-
-    <section class="hero ">
-      <div class="hero-body">
-        <div class="container">
-          <div
-            v-for="group in Math.ceil((projects.length - 2) / 2)"
-            v-bind:key="group"
-          >
-            <section class="section">
-              <div class="columns is-variable is-8">
-                <div
-                  v-for="(post, index) in projects.slice(
-                    group * 2,
-                    group * 2 + 2
-                  )"
-                  v-bind:key="post.slug"
-                  :class="['column is-5', index === 0 && 'is-offset-1']"
-                >
-                  <div class="content is-medium">
-                    <h1 class="title has-text-black is-3">
-                      <nuxt-link :to="`/posts/${post.slug}`">{{
-                        post.title
-                      }}</nuxt-link>
-                    </h1>
-                    <div class="has-text-dark" v-html="post.excerpt" />
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <div class="is-divider" />
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+  </main>
 </template>
 
 <script>
 import { request, gql, imageFields, seoMetaTagsFields } from '~/lib/datocms'
 import { toHead } from 'vue-datocms'
 
-import parseISO from 'date-fns/parseISO'
+//import parseISO from 'date-fns/parseISO'
 
 export default {
   async asyncData({ params }) {
@@ -134,6 +72,11 @@ export default {
                 ...imageFields
               }
             }
+            role {
+              company {
+                name
+              }
+            }
           }
         }
         ${imageFields}
@@ -152,3 +95,4 @@ export default {
   }
 }
 </script>
+<style scoped></style>

@@ -1,0 +1,59 @@
+/* @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,700;1,400;1,700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@media screen and (min-width: 640px) {
+html {
+    padding-right: calc(15px - (100vw - 100%));
+}
+}
+
+body, html {
+    @apply font-sans;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    @apply transition-all;
+    @apply duration-300;
+    @apply ease-in-out;
+}
+a:hover {
+    @apply text-primary;
+}
+img {
+  @apply transition-all;
+    @apply duration-300;
+    @apply ease-in-out;
+}
+a:hover > img {
+  @apply scale-110;
+}
+
+
+a.nuxt-link-active {
+}
+/* exact link will show the primary color for only the exact matching link */
+a.nuxt-link-exact-active {
+  @apply opacity-50;
+ 
+}
+
+.slide-bottom-enter-active,
+.slide-bottom-leave-active {
+  transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
+}
+.slide-bottom-enter,
+.slide-bottom-leave-to {
+  opacity: 0;
+  transform: translate3d(0, 15px, 0);
+}
+
+.prose > p, .prose-xs > p, .prose-sm > p, .prose-xl > p{
+  @apply mb-2;
+}

@@ -3,14 +3,28 @@
     <figure class="image">
       <datocms-image :data="project.cover.responsiveImage" />
     </figure>
+    <div class="prose mx-auto py-16">
+      <h1 class="title">
+        {{ project.name }}
+      </h1>
+      <div v-html="project.blurb"></div>
+    </div>
 
-    <h1 class="title">
-      <nuxt-link :to="`/projects/${project.slug}`">{{
-        project.name
-      }}</nuxt-link>
-    </h1>
-    <div v-html="project.blurb"></div>
-    <!-- Slices -->
+    <div role="slices">
+      <div v-if="project.slices">
+        <div v-for="slice in project.slices" :key="slice.id">
+          <slice-paragraph
+            :slice="slice"
+            v-if="slice.sliceType.name === 'paragraph'"
+          ></slice-paragraph>
+          <slice-screenshot
+            :slice="slice"
+            v-if="slice.sliceType.name === 'screenshot'"
+          ></slice-screenshot>
+        </div>
+      </div>
+      <div v-else>No slices found!</div>
+    </div>
   </div>
 </template>
 
@@ -18,9 +32,12 @@
 import { request, gql, imageFields, seoMetaTagsFields } from '~/lib/datocms'
 import { toHead } from 'vue-datocms'
 import format from 'date-fns/format'
+import SliceParagraph from '../../components/slices/SliceParagraph.vue'
+import SliceScreenshot from '../../components/slices/SliceScreenshot.vue'
 // import parseISO from 'date-fns/parseISO'
 
 export default {
+  components: { SliceParagraph, SliceScreenshot },
   async asyncData({ params }) {
     const data = await request({
       query: gql`
@@ -39,26 +56,38 @@ export default {
             name
             slug
             blurb
-            # publicationDate: _firstPublishedAt
-            # content {
-            #   value
-            #   blocks {
-            #     __typename
-            #     ... on ImageBlockRecord {
-            #       id
-            #       image {
-            #         responsiveImage(
-            #           imgixParams: { fm: jpg, fit: crop, w: 2000, h: 1000 }
-            #         ) {
-            #           ...imageFields
-            #         }
-            #       }
-            #     }
-            #   }
-            # }
             cover {
-              responsiveImage(imgixParams: { fit: crop, ar: "16:9", w: 860 }) {
+              responsiveImage(imgixParams: { fit: crop, ar: "16:9", w: 1440 }) {
                 ...imageFields
+              }
+            }
+            slices: slices {
+              ... on ParagraphRecord {
+                id
+                content
+                sliceType {
+                  name
+                }
+              }
+              ... on ScreenRecord {
+                id
+                image {
+                  responsiveImage(
+                    imgixParams: { fit: crop, ar: "16:9", w: 1440 }
+                  ) {
+                    ...imageFields
+                  }
+                }
+                sliceType {
+                  name
+                }
+              }
+              ... on EmbedRecord {
+                id
+                embed
+                sliceType {
+                  name
+                }
               }
             }
           }
