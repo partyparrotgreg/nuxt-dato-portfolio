@@ -3,21 +3,23 @@
     <figure class="image">
       <datocms-image :data="project.cover.responsiveImage" />
     </figure>
-    <div class="prose mx-auto py-16">
+    <div class="prose mx-auto mt-16">
+      <p>{{ project.role.company.name }}</p>
       <h1 class="title">
         {{ project.name }}
       </h1>
-      <div v-html="project.blurb"></div>
+      <div v-html="project.blurb" class="font-light text-2xl"></div>
     </div>
-
     <div role="slices">
       <div v-if="project.slices">
         <div v-for="slice in project.slices" :key="slice.id">
           <slice-paragraph
+            class="slice-paragraph"
             :slice="slice"
             v-if="slice.sliceType.name === 'paragraph'"
           ></slice-paragraph>
           <slice-screenshot
+            class="slice-screenshot"
             :slice="slice"
             v-if="slice.sliceType.name === 'screenshot'"
           ></slice-screenshot>
@@ -25,6 +27,28 @@
       </div>
       <div v-else>No slices found!</div>
     </div>
+    <section class="p-8 sm:p-16">
+      <div class="prose mx-auto">
+        <h2>
+          My role as {{ project.role.role }} at {{ project.role.company.name }}
+        </h2>
+        <div v-html="project.role.description"></div>
+
+        <div class="text-primary">
+          I also worked on:
+        </div>
+        <div>
+          <ul>
+            <li v-for="link in project.role.projects" :key="link.id">
+              <nuxt-link :to="`/projects/${link.slug}`">{{
+                link.name
+              }}</nuxt-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <app-footer :footer="footer"></app-footer>
   </div>
 </template>
 
@@ -32,12 +56,13 @@
 import { request, gql, imageFields, seoMetaTagsFields } from '~/lib/datocms'
 import { toHead } from 'vue-datocms'
 import format from 'date-fns/format'
-import SliceParagraph from '../../components/slices/SliceParagraph.vue'
-import SliceScreenshot from '../../components/slices/SliceScreenshot.vue'
+import SliceParagraph from '~/components/slices/SliceParagraph.vue'
+import SliceScreenshot from '~/components/slices/SliceScreenshot.vue'
+import AppFooter from '~/components/shared/AppFooter'
 // import parseISO from 'date-fns/parseISO'
 
 export default {
-  components: { SliceParagraph, SliceScreenshot },
+  components: { SliceParagraph, SliceScreenshot, AppFooter },
   async asyncData({ params }) {
     const data = await request({
       query: gql`
@@ -45,6 +70,15 @@ export default {
           site: _site {
             favicon: faviconMetaTags {
               ...seoMetaTagsFields
+            }
+          }
+          footer: footer {
+            callout
+            title
+            socialMedia {
+              id
+              name
+              url
             }
           }
 
@@ -59,6 +93,24 @@ export default {
             cover {
               responsiveImage(imgixParams: { fit: crop, ar: "16:9", w: 1440 }) {
                 ...imageFields
+              }
+            }
+            role {
+              from
+              role
+              description
+              to
+              id
+              city
+              company {
+                name
+                id
+                url
+              }
+              projects {
+                id
+                name
+                slug
               }
             }
             slices: slices {

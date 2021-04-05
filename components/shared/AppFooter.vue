@@ -1,20 +1,27 @@
 <template>
-  <footer class="p-8 sm:p-16 bg-primary text-white mt-24">
-    <div class="prose text-white">
-      <h2>Say hello!</h2>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum ab magni
-        rerum odit? Fugit ea eius, soluta rerum id ut quam in dolorem quidem
-        cupiditate excepturi eaque! Distinctio, molestiae magnam!
-      </p>
-      <a href="https://linkedin.com"></a>
+  <footer class="p-8 sm:p-16 bg-primary text-white space-y-16">
+    <div class="text-white ">
+      <div>
+        <h2>{{ footer.callout }}</h2>
+        <div v-html="footer.title" class="text-2xl font-medium"></div>
+      </div>
+      <div class="space-x-4 mt-8">
+        <a
+          v-for="link in footer.socialMedia"
+          :key="link.id"
+          :href="link.url"
+          class="hover:text-black"
+        >
+          {{ link.name }}
+        </a>
+      </div>
     </div>
-    <div class="mt-8">
-      <small
-        >Design, code, and copy by Grzegorz Hadala. <br />
-        Copyright © {{ getYear }} Grzegorz Hadala, All assets, arworks, and
-        screenshots are copyright of their respective owners.</small
-      >
+    <div class="text-xs font-light opacity-75 space-y-2">
+      <p>Made with Vue.js &amp; DatoCMS</p>
+      <p>
+        Copyright © {{ getYear }} Grzegorz Hadala, All assets, artworks, and
+        screenshots are copyright of their respective owners.
+      </p>
     </div>
   </footer>
 </template>
@@ -22,6 +29,7 @@
 <script>
 export default {
   name: 'app-footer',
+  props: ['footer'],
   computed: {
     getYear() {
       return new Date().getFullYear()

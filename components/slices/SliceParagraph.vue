@@ -1,5 +1,5 @@
 <template>
-  <section><div class="prose mx-auto" v-html="slice.content"></div></section>
+  <div class="prose mx-auto" v-html="slice.content"></div>
 </template>
 
 <script>

@@ -38,7 +38,8 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'Space Grotesk',
+        // 'Space Grotesk',
+        'DM Sans',
         'system-ui',
         '-apple-system',
         'BlinkMacSystemFont',
