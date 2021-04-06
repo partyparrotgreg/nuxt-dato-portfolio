@@ -29,7 +29,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [],
+
   /*
    ** Nuxt.js modules
    */
@@ -39,6 +39,9 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv'
   ],
+  googleAnalytics: {
+    id: 'UA-6874650-30'
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -47,18 +50,18 @@ export default {
   /*
    ** Build configuration
    */
-  buildModules: ['@nuxtjs/tailwindcss'],
-  build: {
-    postcss: {
-      preset: {
-        features: {
-          customProperties: false
-        }
-      }
-    },
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
-  }
+  buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/google-analytics']
+  // build: {
+  //   postcss: {
+  //     preset: {
+  //       features: {
+  //         customProperties: false
+  //       }
+  //     }
+  //   },
+  //   /*
+  //    ** You can extend webpack config here
+  //    */
+  //   extend(config, ctx) {}
+  // }
 }
