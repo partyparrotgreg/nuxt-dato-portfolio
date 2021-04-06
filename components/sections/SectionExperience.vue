@@ -1,5 +1,5 @@
 <template>
-  <div class="section-experience p-8 sm:p-16 xl:p-32 bg-gray-50">
+  <div class="section-experience p-8 sm:p-16 2xl:p-32 bg-gray-50">
     <div class="mb-12">
       <small class="opacity-50">{{ slice.callout }}</small>
       <h2 class="text-xl sm:text-3xl font-semibold -mx-1 mb-2">

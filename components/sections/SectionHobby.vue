@@ -1,5 +1,5 @@
 <template>
-  <div class="section-hobby p-8 sm:p-16 xl:p-32">
+  <div class="section-hobby p-8 sm:p-16 2xl:p-32">
     <div class="md:flex md:flex-col md:space-y-24">
       <div class="max-w-prose">
         <small class="opacity-50">{{ slice.callout }}</small>

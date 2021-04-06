@@ -6,7 +6,7 @@
           {{ header.introduction }}
         </p>
         <h1
-          class="text-2xl sm:text-4xl lg:text-6xl font-medium"
+          class="text-2xl sm:text-4xl lg:text-6xl font-bold"
           style="line-height: 1.2"
         >
           {{ header.headline }}
