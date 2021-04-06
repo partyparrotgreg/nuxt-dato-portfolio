@@ -7,7 +7,7 @@
           <h2 class="text-xl sm:text-3xl font-semibold -mx-1 mb-2">
             {{ slice.title }}
           </h2>
-          <div v-html="slice.description" class="prose"></div>
+          <div v-html="slice.description" class="prose mb-6 sm:mb-0"></div>
         </div>
       </div>
       <div class="w-full lg:w-1/2">

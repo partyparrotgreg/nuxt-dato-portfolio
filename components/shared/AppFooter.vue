@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="pt-8 sm:pt-16 px-8 sm:px-16 bg-primary text-white space-y-16 sm:pb-16 pb-24 2xl:p-32"
+    class="pt-8 sm:pt-16 px-8 sm:px-16 bg-black text-white space-y-24 sm:pb-16 pb-24 2xl:p-32"
   >
     <div class="text-white ">
       <div>
@@ -17,13 +17,13 @@
           v-for="link in footer.socialMedia"
           :key="link.id"
           :href="link.url"
-          class="hover:text-black"
+          class="hover:text-primary"
         >
           {{ link.name }}
         </a>
       </div>
     </div>
-    <div class="text-xs font-light opacity-75 space-y-2">
+    <div class="text-xs font-light opacity-50 space-y-2">
       <p>Made with Vue.js &amp; DatoCMS</p>
       <p>
         Copyright © {{ getYear }} Grzegorz Hadala. All assets, artworks, and
