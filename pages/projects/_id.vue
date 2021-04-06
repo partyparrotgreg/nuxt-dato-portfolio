@@ -124,7 +124,7 @@ export default {
               ... on ScreenRecord {
                 id
                 image {
-                  responsiveImage {
+                  responsiveImage(imgixParams: { w: 1280 }) {
                     ...imageFields
                   }
                 }
