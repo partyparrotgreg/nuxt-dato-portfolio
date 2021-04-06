@@ -1,12 +1,16 @@
 <template>
-  <page-section class="bg-gray-100">
-    <bit-heading
-      :callout="slice.callout"
-      :title="slice.title"
-      :description="slice.description"
-    ></bit-heading>
+  <div
+    class="bg-primary section-process p-8 2xl:p-32 sm:p-16 text-primary-light"
+  >
+    <div class="max-w-prose">
+      <small class="opacity-50">{{ slice.callout }}</small>
+      <h2 class="text-xl sm:text-3xl font-semibold -mx-1 mb-2 text-white">
+        {{ slice.title }}
+      </h2>
+      <div v-html="slice.description"></div>
+    </div>
     <svg
-      class="w-full h-auto my-16 stroke-current text-primary"
+      class="w-full h-auto my-16 stroke-current"
       width="1250"
       height="386"
       viewBox="0 0 1250 386"
@@ -34,21 +38,32 @@
         vector-effect="non-scaling-stroke"
       />
     </svg>
-    <list-techniques></list-techniques>
-  </page-section>
+    <div class="list-techniques grid md:grid-cols-2 xl:grid-cols-4 gap-12">
+      <div
+        class="flex flex-col space-y-4"
+        role="list-item"
+        v-for="technique in techniques"
+        :key="technique.id"
+      >
+        <h3 class="text-lg font-medium text-white">
+          {{ technique.name }}
+        </h3>
+        <div class="flex-grow text-xs" v-html="technique.description"></div>
+        <ul class="divide-y divide-white divide-opacity-25 text-xs">
+          <li class="py-2" v-for="tool in technique.tools" :key="tool.id">
+            {{ tool.name }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      callout: "Bleble",
-      title: "Some title",
-      description: "<p>Lol</p>"
-    };
-  },
-  props: ["slice"]
-};
+  name: 'section-process',
+  props: ['slice', 'techniques']
+}
 </script>
 
 <style></style>

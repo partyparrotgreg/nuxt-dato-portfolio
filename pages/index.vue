@@ -1,35 +1,48 @@
 <template>
   <div>
-    <main class="page-index px-8 sm:px-16">
-      <div class="max-w-4xl mt-32 mb-8">
-        <p class="font-light text-2xl text-primary">
+    <div class=" bg-primary h-screen w-full flex align-middle items-center">
+      <div class="space-y-4 p-8 sm:p-16 2xl:p-32">
+        <p class="font-light text-xl sm:text-2xl">
           {{ header.introduction }}
         </p>
-        <div
-          v-html="header.headline"
-          class="text-6xl font-medium leading-tight"
-        ></div>
+        <h1
+          class="text-2xl sm:text-4xl lg:text-6xl font-medium"
+          style="line-height: 1.2"
+        >
+          {{ header.headline }}
+        </h1>
+        <div>
+          &darr;
+        </div>
       </div>
-      <section>
+    </div>
+    <main class="page-index px-8 sm:px-16 xl:p-32">
+      <section class="space-y-16 sm:space-y-0 mb-24 sm:mb-0">
         <article
           v-for="(project, index) in projects"
           v-bind:key="project.slug"
-          class="flex h-screen"
-          :class="index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'"
+          class="flex lg:h-screen space-y-4 sm:space-y-0"
+          :class="
+            index % 2 === 0
+              ? 'flex-col sm:flex-row'
+              : 'flex-col sm:flex-row-reverse'
+          "
         >
           <nuxt-link
-            class="w-1/2 flex justify-center align-middle items-center"
+            class="w-full lg:w-1/2 flex sm:justify-center sm:align-middle sm:items-center"
             :to="`/projects/${project.slug}`"
           >
             <figure>
               <datocms-image :data="project.cover.responsiveImage" />
             </figure>
           </nuxt-link>
-          <div class="w-1/2 flex justify-center align-middle items-center">
-            <div class="object-center w-3/5 space-y-2  flex-col">
+          <div
+            class="w-full lg:w-1/2 flex justify-center align-middle items-center"
+          >
+            <div class="object-center sm:w-3/5 space-y-2 flex-col">
               <nuxt-link :to="`/projects/${project.slug}`">
                 <small>{{ project.role.company.name }}</small>
-                <h2 class="text-3xl font-semibold">
+                <h2 class="text-xl sm:text-3xl font-semibold">
                   {{ project.name }}
                 </h2>
               </nuxt-link>
@@ -62,6 +75,9 @@ export default {
             }
           }
           header: header {
+            seo: _seoMetaTags {
+              ...seoMetaTagsFields
+            }
             introduction
             headline
             currentRole
@@ -109,7 +125,7 @@ export default {
       return
     }
 
-    return toHead(this.site.favicon)
+    return toHead(this.header.seo, this.site.favicon)
   }
 }
 </script>

@@ -3,18 +3,18 @@
     <figure class="image">
       <datocms-image :data="project.cover.responsiveImage" />
     </figure>
-    <div class="prose mx-auto mt-16">
+    <div class="max-w-prose p-8 sm:p-16 mt-8 mx-auto prose xl:prose-xl">
       <p>{{ project.role.company.name }}</p>
-      <h1 class="title">
+      <h1 class="text-3xl sm:text-6xl font-bold mb-4 leading-tight">
         {{ project.name }}
       </h1>
-      <div v-html="project.blurb" class="font-light text-2xl"></div>
+      <div v-html="project.blurb" class="font-light text-xl sm:text-2xl"></div>
     </div>
     <div role="slices">
       <div v-if="project.slices">
         <div v-for="slice in project.slices" :key="slice.id">
           <slice-paragraph
-            class="slice-paragraph"
+            class="slice-paragraph mb-16"
             :slice="slice"
             v-if="slice.sliceType.name === 'paragraph'"
           ></slice-paragraph>
@@ -28,7 +28,7 @@
       <div v-else>No slices found!</div>
     </div>
     <section class="p-8 sm:p-16">
-      <div class="prose mx-auto">
+      <div class="prose 2xl:prose-xl mx-auto">
         <h2>
           My role as {{ project.role.role }} at {{ project.role.company.name }}
         </h2>

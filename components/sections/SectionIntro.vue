@@ -1,36 +1,31 @@
 <template>
-  <div>
-    <page-section>
-      <div class="lg:flex lg:flex-row lg:space-x-24">
-        <div class="w-full lg:w-4/12">
-          <bit-heading
-            class="mb-8"
-            :title="slice.title"
-            :callout="slice.callout"
-            :description="slice.description"
-          ></bit-heading>
-        </div>
-        <div class="w-full lg:w-8/12">
-          <div
-            class="-mx-4 sm:-mx-8 rounded-2xl aspect-w-5 aspect-h-3 overflow-hidden"
-          >
-            <img
-              :src="slice.image.responsiveImage.url"
-              :srcset="slice.image.responsiveImage.srcSet"
-              class="object-cover"
-              draggable="false"
-            />
-          </div>
+  <div class="section-intro p-8 sm:p-16 2xl:p-32">
+    <div class="lg:flex lg:flex-row lg:space-x-24">
+      <div class="w-full lg:w-1/2">
+        <div>
+          <small class="opacity-50">{{ slice.callout }}</small>
+          <h2 class="text-xl sm:text-3xl font-semibold -mx-1 mb-2">
+            {{ slice.title }}
+          </h2>
+          <div v-html="slice.description" class="prose"></div>
         </div>
       </div>
-    </page-section>
+      <div class="w-full lg:w-1/2">
+        <div class="aspect-w-5 aspect-h-3 overflow-hidden">
+          <figure>
+            <datocms-image :data="slice.image.responsiveImage" />
+          </figure>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["slice"]
-};
+  name: 'section-intro',
+  props: ['slice']
+}
 </script>
 
 <style></style>

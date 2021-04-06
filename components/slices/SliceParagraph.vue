@@ -1,5 +1,8 @@
 <template>
-  <div class="prose mx-auto" v-html="slice.content"></div>
+  <div
+    class="prose 2xl:prose-xl mx-auto p-8 sm:p-16"
+    v-html="slice.content"
+  ></div>
 </template>
 
 <script>

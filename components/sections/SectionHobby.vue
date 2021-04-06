@@ -1,47 +1,32 @@
 <template>
-  <page-section>
+  <div class="section-hobby p-8 sm:p-16 xl:p-32">
     <div class="md:flex md:flex-col md:space-y-24">
-      <div class="w-full">
-        <bit-heading
-          class="mb-8"
-          :title="slice.title"
-          :callout="slice.callout"
-          :description="slice.description"
-        ></bit-heading>
+      <div class="max-w-prose">
+        <small class="opacity-50">{{ slice.callout }}</small>
+        <h2 class="text-xl sm:text-3xl font-semibold -mx-1 mb-2">
+          {{ slice.title }}
+        </h2>
+        <div v-html="slice.description"></div>
       </div>
-      <div class="w-full">
+      <div>
         <div
           class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 auto-rows-fr"
         >
-          <div
-            class="rounded-2xl aspect-w-1 aspect-h-1 overflow-hidden"
-            v-for="image in slice.images"
-            :key="image.id"
-          >
-            <img
-              :src="image.responsiveImage.src"
-              :srcSet="image.responsiveImage.srcSet"
-              class="object-cover"
-              draggable="false"
-              :width="image.responsiveImage.width"
-              :height="image.responsiveImage.height"
-              :alt="image.responsiveImage.alt"
-              :title="image.responsiveImage.title"
-            />
+          <div v-for="image in slice.images" :key="image.id">
+            <figure class="image">
+              <datocms-image :data="image.responsiveImage" />
+            </figure>
           </div>
         </div>
       </div>
     </div>
-  </page-section>
+  </div>
 </template>
 
 <script>
 export default {
-  props: ["slice"],
-  data() {
-    return {};
-  }
-};
+  props: ['slice']
+}
 </script>
 
 <style></style>

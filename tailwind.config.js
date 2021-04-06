@@ -69,9 +69,10 @@ module.exports = {
         '2xl': '1536px'
       },
       colors: {
-        black: '#000',
+        black: '#130906',
         white: '#fff',
-        primary: '#FF7F50'
+        primary: '#FF6C47',
+        'primary-light': '#FFE0D7'
       },
       spacing: {
         28: '7rem'
