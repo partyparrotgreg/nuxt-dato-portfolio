@@ -127,7 +127,9 @@ export default {
                   responsiveImage(imgixParams: { w: 1280 }) {
                     ...imageFields
                   }
+                  title
                 }
+                description
                 sliceType {
                   name
                 }

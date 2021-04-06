@@ -1,14 +1,8 @@
-# Vue.js + DatoCMS + Bulma demo
+# Greg's Portfolio
 
-## Deploy on DatoCMS
+## Status
 
-[![Deploy with DatoCMS](https://dashboard.datocms.com/deploy/button.svg)](https://dashboard.datocms.com/deploy?repo=datocms/nuxtjs-demo)
-
-Or set the API token manually:
-
-```
-echo 'NUXT_ENV_DATOCMS_API_TOKEN=abc123' >> .env
-```
+[![Netlify Status](https://api.netlify.com/api/v1/badges/21b74055-f0a6-4fac-b63e-d65c5f918b62/deploy-status)](https://app.netlify.com/sites/zen-kowalevski-1e3dd0/deploys)
 
 ## Build Setup
 
@@ -27,4 +21,6 @@ $ npm run start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## About
+
+Using DatoCMS, Nuxt.js 2.5+ with TailwindCSS.
