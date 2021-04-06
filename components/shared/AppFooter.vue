@@ -17,15 +17,20 @@
           v-for="link in footer.socialMedia"
           :key="link.id"
           :href="link.url"
+          target="_blank"
           class="hover:text-primary"
         >
           {{ link.name }}
         </a>
       </div>
     </div>
-    <div class="text-xs font-light opacity-50 space-y-2">
-      <p>Made with Vue.js &amp; DatoCMS</p>
+    <div class="text-xs font-light space-y-2">
       <p>
+        Made with <a target="_blank" href="https://nuxtjs.org/">Nuxt.js</a>,
+        <a target="_blank" href="https://tailwindcss.com/">TailwindCSS</a> &amp;
+        <a target="_blank" href="https://www.datocms.com/">DatoCMS</a>
+      </p>
+      <p class="opacity-50">
         Copyright © {{ getYear }} Grzegorz Hadala. All assets, artworks, and
         screenshots are copyright of their respective owners.
       </p>
