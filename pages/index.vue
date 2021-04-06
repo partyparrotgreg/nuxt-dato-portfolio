@@ -1,18 +1,23 @@
 <template>
   <div>
-    <div class=" bg-primary h-screen w-full flex align-middle items-center">
-      <div class="space-y-4 p-8 sm:p-16 2xl:p-32">
-        <p class="font-light text-xl sm:text-2xl">
-          {{ header.introduction }}
-        </p>
-        <h1
-          class="text-2xl sm:text-4xl lg:text-6xl font-bold"
-          style="line-height: 1.2"
-        >
-          {{ header.headline }}
-        </h1>
-        <div>
-          &darr;
+    <div
+      class=" bg-primary h-screen w-full flex align-middle items-center relative overflow-hidden"
+    >
+      <div class="absolute bottom-0 right-0 bg-yellow-200 h-48 w-48"></div>
+      <div class="p-8 sm:p-16 2xl:p-32">
+        <div class="space-y-4 sm:max-w-5xl">
+          <p class="font-light text-xl sm:text-2xl">
+            {{ header.introduction }}
+          </p>
+          <h1
+            class="text-2xl sm:text-4xl lg:text-6xl font-medium"
+            style="line-height: 1.2"
+          >
+            {{ header.headline }}
+          </h1>
+          <div>
+            &darr;
+          </div>
         </div>
       </div>
     </div>
