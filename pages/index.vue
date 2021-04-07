@@ -90,7 +90,7 @@
         </div>
       </div>
     </div>
-    <main class="page-index pt-8 sm:pt-0 px-8 sm:px-16 2xl:p-32">
+    <main class="relative page-index pt-8 sm:pt-0 px-8 sm:px-16 2xl:p-32">
       <section class="space-y-16 sm:space-y-0 mb-24 sm:mb-0">
         <article
           v-for="(project, index) in projects"
@@ -206,7 +206,4 @@ export default {
   }
 }
 </script>
-<style scoped>
-.blob {
-}
-</style>
+<style scoped></style>
