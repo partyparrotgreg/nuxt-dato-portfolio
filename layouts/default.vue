@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="subpixel-antialiased">
     <app-header></app-header>
     <nuxt />
   </div>

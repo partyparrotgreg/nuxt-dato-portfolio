@@ -115,7 +115,10 @@
           >
             <div class="object-center sm:w-3/5 space-y-2 flex-col">
               <nuxt-link :to="`/projects/${project.slug}`">
-                <small>{{ project.role.company.name }}</small>
+                <small
+                  >{{ project.year }} <span class="opacity-25"> / </span
+                  >{{ project.role.company.name }}</small
+                >
                 <h2 class="text-xl sm:text-3xl font-semibold">
                   {{ project.name }}
                 </h2>

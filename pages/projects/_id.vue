@@ -1,10 +1,13 @@
 <template>
   <div class="project-details">
     <figure class="image">
-      <datocms-image :data="project.cover.responsiveImage" />
+      <datocms-image :data="project.cover.responsiveImage" draggable="false" />
     </figure>
     <div class="max-w-prose p-8 sm:p-16 mt-8 mx-auto prose xl:prose-xl">
-      <p>{{ project.role.company.name }}</p>
+      <p>
+        {{ project.year }} <span class="opacity-25"> / </span>
+        {{ project.role.company.name }}
+      </p>
       <h1 class="text-3xl sm:text-6xl font-bold mb-4 leading-tight">
         {{ project.name }}
       </h1>
@@ -29,9 +32,16 @@
     </div>
     <section class="p-8 sm:p-16">
       <div class="prose 2xl:prose-xl mx-auto">
-        <h2>
+        <h2 style="margin-bottom: 0;">
           My role as {{ project.role.role }} at {{ project.role.company.name }}
         </h2>
+        <p class="text-gray-500">
+          {{ project.role.city }} <span class="opacity-25"> / </span
+          >{{ project.role.from | formatDate }}
+          <span v-if="project.role.to != null"
+            >&mdash; {{ project.role.to | formatDate }}</span
+          >
+        </p>
         <div v-html="project.role.description"></div>
 
         <div class="text-primary">
@@ -88,6 +98,7 @@ export default {
             }
             id
             name
+            year
             slug
             blurb
             cover {
