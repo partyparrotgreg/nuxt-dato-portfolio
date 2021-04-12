@@ -11,7 +11,7 @@
         ></div>
       </div>
       <div
-        class="flex sm:flex-row flex-col space-y-2 sm:space-y-0 sm:space-x-4 mt-8"
+        class="flex sm:flex-row flex-col space-y-2 sm:space-y-0 sm:space-x-8 mt-8"
       >
         <a
           v-for="link in footer.socialMedia"

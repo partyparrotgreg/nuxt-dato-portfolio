@@ -64,11 +64,11 @@
           >
             {{ header.headline }}
           </h1>
-          <div>
+          <div class="relative">
             <svg
-              class="stroke-current text-black"
-              width="24"
-              height="24"
+              class="stroke-current text-black animate-arrow"
+              width="32"
+              height="32"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -206,4 +206,18 @@ export default {
   }
 }
 </script>
-<style scoped></style>
+<style scoped>
+.animate-arrow {
+  animation: arrow 2s infinite alternate ease-in-out;
+  position: relative;
+}
+
+@keyframes arrow {
+  from {
+    top: 0;
+  }
+  to {
+    top: 32px;
+  }
+}
+</style>
