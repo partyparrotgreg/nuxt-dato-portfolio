@@ -1,6 +1,6 @@
 <template>
   <article
-    class="flex flex-col sm:flex-row sm:space-x-8 px-8 sm:px-12 space-y-4 sm:space-y-0"
+    class="flex flex-col sm:flex-row sm:space-x-8 space-y-4 sm:space-y-0"
   >
     <nuxt-link
       class="w-full lg:w-1/3 flex sm:justify-center sm:align-middle sm:items-center"

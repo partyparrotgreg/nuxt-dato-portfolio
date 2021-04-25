@@ -50,6 +50,7 @@
                 v-for="project in slice.project"
                 :project="project"
                 :key="project.slug"
+                class="px-8 sm:px-12"
               >
               </item-project-small>
             </div>
