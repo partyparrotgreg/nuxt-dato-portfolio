@@ -44,7 +44,7 @@
             ></slice-screenshot>
             <div
               v-if="slice.sliceType.name === 'project'"
-              class="max-w-prose mx-auto space-y-4 mb-16"
+              class="max-w-prose mx-auto space-y-12 mb-16"
             >
               <item-project-small
                 v-for="project in slice.project"
@@ -256,4 +256,14 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.article {
+  -webkit-touch-callout: text; /* iOS Safari */
+  -webkit-user-select: text; /* Safari */
+  -khtml-user-select: text; /* Konqueror HTML */
+  -moz-user-select: text; /* Old versions of Firefox */
+  -ms-user-select: text; /* Internet Explorer/Edge */
+  user-select: text; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+</style>

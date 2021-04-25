@@ -108,7 +108,7 @@
           <item-project-small
             v-else
             :project="project"
-            class="mx-auto mb-12 max-w-4xl"
+            class="mx-auto mb-12 max-w-3xl"
           ></item-project-small>
         </div>
       </section>
