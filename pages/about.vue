@@ -33,6 +33,7 @@ import SectionExperience from '~/components/sections/SectionExperience'
 import SectionProcess from '~/components/sections/SectionProcess'
 import SectionHobby from '~/components/sections/SectionHobby'
 export default {
+  transition: 'home',
   components: {
     AppFooter,
     SectionIntro,

@@ -3,11 +3,12 @@
     <figure class="image">
       <datocms-image :data="project.cover.responsiveImage" draggable="false" />
     </figure>
-    <div class="max-w-prose p-8 sm:p-16 mt-8 mx-auto prose xl:prose-xl">
-      <p>
-        {{ project.year }} <span class="opacity-25"> / </span>
-        {{ project.role.company.name }}
+    <div class="max-w-prose p-8 sm:p-16 mt-8 mx-auto prose">
+      <p v-if="project.role">
+        {{ project.year }} <span class="opacity-25"> / </span
+        >{{ project.role.company.name }}
       </p>
+      <p v-else>{{ project.year }}</p>
       <h1 class="text-3xl sm:text-6xl font-bold mb-4 leading-tight">
         {{ project.name }}
       </h1>
@@ -30,7 +31,7 @@
       </div>
       <div v-else>No slices found!</div>
     </div>
-    <section class="p-8 sm:p-16">
+    <section class="p-8 sm:p-16" v-if="project.role">
       <div class="prose 2xl:prose-xl mx-auto">
         <h2 style="margin-bottom: 0;">
           My role as {{ project.role.role }} at {{ project.role.company.name }}
@@ -72,6 +73,7 @@ import AppFooter from '~/components/shared/AppFooter'
 // import parseISO from 'date-fns/parseISO'
 
 export default {
+  transition: 'home',
   components: { SliceParagraph, SliceScreenshot, AppFooter },
   async asyncData({ params }) {
     const data = await request({

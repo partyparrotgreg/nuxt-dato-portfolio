@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-home">
     <div
       class="bg-primary h-screen w-full flex align-middle items-center relative overflow-hidden"
     >
@@ -55,11 +55,12 @@
       </div>
       <div class="p-8 sm:p-16 2xl:p-32">
         <div class="space-y-4 sm:max-w-5xl relative z-50">
-          <p class="font-light text-xl sm:text-2xl">
+          <p class="font-light text-xl sm:text-2xl appear delay" data-count="1">
             {{ header.introduction }}
           </p>
           <h1
-            class="text-2xl sm:text-4xl lg:text-6xl font-medium"
+            class="text-2xl sm:text-4xl lg:text-6xl font-medium -ml-1 appear delay"
+            data-count="2"
             style="line-height: 1.2"
           >
             {{ header.headline }}
@@ -92,41 +93,24 @@
     </div>
     <main class="relative page-index pt-8 sm:pt-0 px-8 sm:px-16 2xl:p-32">
       <section class="space-y-16 sm:space-y-0 mb-24 sm:mb-0">
-        <article
-          v-for="(project, index) in projects"
-          v-bind:key="project.slug"
-          class="flex lg:h-screen space-y-4 sm:space-y-0"
-          :class="
-            index % 2 === 0
-              ? 'flex-col sm:flex-row'
-              : 'flex-col sm:flex-row-reverse'
-          "
-        >
-          <nuxt-link
-            class="w-full lg:w-1/2 flex sm:justify-center sm:align-middle sm:items-center"
-            :to="`/projects/${project.slug}`"
+        <div v-for="(project, index) in projects" v-bind:key="project.slug">
+          <item-project
+            v-if="index < 5"
+            :project="project"
+            class="flex lg:h-screen space-y-4 sm:space-y-0"
+            :class="
+              index % 2 === 0
+                ? 'flex-col sm:flex-row'
+                : 'flex-col sm:flex-row-reverse'
+            "
           >
-            <figure>
-              <datocms-image :data="project.cover.responsiveImage" />
-            </figure>
-          </nuxt-link>
-          <div
-            class="w-full lg:w-1/2 flex justify-center align-middle items-center"
-          >
-            <div class="object-center sm:w-3/5 space-y-2 flex-col">
-              <nuxt-link :to="`/projects/${project.slug}`">
-                <small
-                  >{{ project.year }} <span class="opacity-25"> / </span
-                  >{{ project.role.company.name }}</small
-                >
-                <h2 class="text-xl sm:text-3xl font-semibold">
-                  {{ project.name }}
-                </h2>
-              </nuxt-link>
-              <div v-html="project.blurb" />
-            </div>
-          </div>
-        </article>
+          </item-project>
+          <item-project-small
+            v-else
+            :project="project"
+            class="mx-auto mb-12 max-w-4xl"
+          ></item-project-small>
+        </div>
       </section>
     </main>
     <app-footer :footer="footer"></app-footer>
@@ -137,11 +121,14 @@
 import { request, gql, imageFields, seoMetaTagsFields } from '~/lib/datocms'
 import { toHead } from 'vue-datocms'
 import AppFooter from '~/components/shared/AppFooter'
+import ItemProject from '~/components/lists/ItemProject'
+import ItemProjectSmall from '~/components/lists/ItemProjectSmall'
 
 //import parseISO from 'date-fns/parseISO'
 
 export default {
-  components: { AppFooter },
+  transition: 'home',
+  components: { AppFooter, ItemProject, ItemProjectSmall },
   async asyncData({ params }) {
     const data = await request({
       query: gql`
@@ -197,6 +184,7 @@ export default {
 
     return { ready: !!data, ...data }
   },
+
   head() {
     if (!this.ready) {
       return

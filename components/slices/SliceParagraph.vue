@@ -1,6 +1,6 @@
 <template>
   <div
-    class="prose 2xl:prose-xl mx-auto p-8 sm:p-16"
+    class="prose 2xl:prose-xl mx-auto px-8 sm:px-16"
     v-html="slice.content"
   ></div>
 </template>
