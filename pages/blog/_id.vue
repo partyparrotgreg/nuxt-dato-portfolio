@@ -7,9 +7,12 @@
           style="z-index: 999;"
         >
           <small>{{ formatDate(article.published) }}</small>
-          <h1 class="capitalize text-3xl sm:text-6xl font-bold leading-tight">
+          <h1
+            class="capitalize text-3xl sm:text-6xl font-bold leading-tight -mx-1"
+          >
             {{ article.title }}
           </h1>
+
           <div
             v-html="article.blurb"
             class="font-light text-md sm:text-xl"
@@ -58,6 +61,11 @@
         </div>
         <div v-else class="max-w-prose p-8 sm:p-16 mx-auto prose">
           <p>Oh, snap, there is no content here!</p>
+        </div>
+        <div class="max-w-prose p-8 sm:p-16 mx-auto">
+          <span class="text-gray-600 text-xs"
+            >Updated: {{ formatDate(article.updated) }}</span
+          >
         </div>
       </div>
     </article>
