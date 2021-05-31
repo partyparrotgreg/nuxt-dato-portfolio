@@ -45,6 +45,11 @@
               :slice="slice"
               v-if="slice.sliceType.name === 'screenshot'"
             ></slice-screenshot>
+            <slice-code
+              class="slice-code"
+              :slice="slice"
+              v-if="slice.sliceType.name === 'code'"
+            ></slice-code>
             <div
               v-if="slice.sliceType.name === 'project'"
               class="max-w-prose mx-auto space-y-12 mb-16"
@@ -111,6 +116,7 @@ import { request, gql, imageFields, seoMetaTagsFields } from '~/lib/datocms'
 import { toHead } from 'vue-datocms'
 import format from 'date-fns/format'
 import SliceParagraph from '~/components/slices/SliceParagraph.vue'
+import SliceCode from '~/components/slices/SliceCode.vue'
 import SliceScreenshot from '~/components/slices/SliceScreenshot.vue'
 import ItemProjectSmall from '~/components/lists/ItemProjectSmall'
 import AppFooter from '~/components/shared/AppFooter'
@@ -118,7 +124,13 @@ import parseISO from 'date-fns/parseISO'
 
 export default {
   transition: 'home',
-  components: { SliceParagraph, SliceScreenshot, AppFooter, ItemProjectSmall },
+  components: {
+    SliceParagraph,
+    SliceScreenshot,
+    AppFooter,
+    ItemProjectSmall,
+    SliceCode
+  },
   computed: {
     relatedColumns() {
       if (this.related.length === 2) {
@@ -185,6 +197,16 @@ export default {
                   id
                 }
                 content
+              }
+              ... on CodeRecord {
+                id
+                sliceType {
+                  name
+                  id
+                }
+                code
+                language
+                title
               }
               ... on ScreenRecord {
                 id
