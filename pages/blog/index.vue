@@ -27,21 +27,24 @@
             <div v-html="article.blurb" class="prose pb-4"></div>
           </div>
         </div>
-        <div v-else class="flex flex-row space-x-12 max-w-3xl mx-auto">
-          <figure class="w-1/3" role="cover" style="min-width: calc(100%/3);">
+        <div
+          v-else
+          class="md:flex md:space-x-12 md:flex-row space-y-4 sm:space-y-0 md:max-w-3xl md:mx-auto"
+        >
+          <figure class="md:w-3/5" role="cover">
             <!-- <div class="bg-black opacity-50 z-10 absolute inset-0"></div> -->
             <datocms-image
               :data="article.cover.responsiveImage"
               class="w-full h-auto"
             />
           </figure>
-          <div role="description" class="space-y-1">
+          <div role="description" class="space-y-1 flex-grow">
             <nuxt-link :to="`/blog/${article.slug}`">
               <small class="opacity-70">{{
                 formatDate(article._firstPublishedAt)
               }}</small>
               <h2 class="text-xl sm:text-3xl font-semibold -ml-1">
-                {{ article.title }}
+                BBB {{ article.title }}
               </h2>
             </nuxt-link>
             <div v-html="article.blurb" class="prose pb-4"></div>
