@@ -18,6 +18,7 @@
           :key="link.id"
           :href="link.url"
           target="_blank"
+          rel="noopener"
           class="hover:text-primary"
         >
           {{ link.name }}
@@ -26,9 +27,16 @@
     </div>
     <div class="text-xs font-light space-y-2">
       <p>
-        Made with <a target="_blank" href="https://nuxtjs.org/">Nuxt.js</a>,
-        <a target="_blank" href="https://tailwindcss.com/">TailwindCSS</a> &amp;
-        <a target="_blank" href="https://www.datocms.com/">DatoCMS</a>
+        Made with
+        <a target="_blank" href="https://nuxtjs.org/" rel="noopener">Nuxt.js</a
+        >,
+        <a target="_blank" href="https://tailwindcss.com/" rel="noopener"
+          >TailwindCSS</a
+        >
+        &amp;
+        <a target="_blank" href="https://www.datocms.com/" rel="noopener"
+          >DatoCMS</a
+        >
       </p>
       <p class="opacity-50">
         Copyright © {{ getYear }} Grzegorz Hadala. All assets, artworks, and

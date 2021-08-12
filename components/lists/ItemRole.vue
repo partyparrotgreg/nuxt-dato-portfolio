@@ -6,6 +6,7 @@
         :href="role.company.url"
         v-if="role.company.url != null"
         target="_blank"
+        rel="noopener"
         class="font-medium"
         >{{ role.company.name }}</a
       >
