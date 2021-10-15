@@ -14,7 +14,11 @@ export default {
     // title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'google-site-verification',
+        content: 'ZVrdHo7PwTskvXn-_AjN3_t-V6T09CX6JoKAJV3Ovfg'
+      }
     ],
     link: [
       {
