@@ -8,9 +8,14 @@
         :id="'article-' + article.slug + '-' + index"
       >
         <div v-if="index === 0" class="relative space-y-4 sm:space-y-0">
-          <figure>
-            <datocms-image :data="article.cover.responsiveImage" class="" />
-          </figure>
+          <nuxt-link
+            class="w-full flex sm:justify-center sm:align-middle sm:items-center"
+            :to="`/blog/${article.slug}`"
+          >
+            <figure class="rounded-2xl overflow-hidden">
+              <datocms-image :data="article.cover.responsiveImage" />
+            </figure>
+          </nuxt-link>
           <div
             class="sm:absolute top-0 sm:p-4 xl:p-12 bg-white space-y-1 max-w-2xl"
           >
@@ -29,22 +34,25 @@
         </div>
         <div
           v-else
-          class="md:flex md:space-x-12 md:flex-row space-y-4 sm:space-y-0 md:max-w-3xl md:mx-auto"
+          class="flex max-w-3xl mx-auto flex-col sm:flex-row sm:space-x-8 space-y-4 sm:space-y-0"
         >
-          <figure class="md:w-3/5" role="cover">
-            <!-- <div class="bg-black opacity-50 z-10 absolute inset-0"></div> -->
-            <datocms-image
-              :data="article.cover.responsiveImage"
-              class="w-full h-auto"
-            />
-          </figure>
+          <nuxt-link
+            class="w-full flex sm:justify-center sm:align-middle sm:items-center"
+            :to="`/blog/${article.slug}`"
+          >
+            <figure
+              class="rounded-2xl overflow-hidden hover:scale-105 transform transition-all ease-out duration-500 hover:shadow-xl"
+            >
+              <datocms-image :data="article.cover.responsiveImage" />
+            </figure>
+          </nuxt-link>
           <div role="description" class="space-y-1 flex-grow">
             <nuxt-link :to="`/blog/${article.slug}`">
               <small class="opacity-70">{{
                 formatDate(article._firstPublishedAt)
               }}</small>
               <h2 class="text-xl sm:text-3xl font-semibold -ml-1">
-                BBB {{ article.title }}
+                {{ article.title }}
               </h2>
             </nuxt-link>
             <div v-html="article.blurb" class="prose pb-4"></div>

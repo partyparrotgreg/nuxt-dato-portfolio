@@ -13,7 +13,7 @@
           class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 auto-rows-fr"
         >
           <div v-for="image in slice.images" :key="image.id">
-            <figure class="image">
+            <figure class="image rounded-xl overflow-hidden">
               <datocms-image :data="image.responsiveImage" />
             </figure>
           </div>

@@ -12,7 +12,7 @@
           <rect
             width="70"
             height="100"
-            class="stroke-current text-yellow-400"
+            class="stroke-current text-secondary"
             fill="none"
             stroke-width="1"
             vector-effect="non-scaling-stroke"
@@ -21,7 +21,7 @@
           <path
             id="blob2"
             vector-effect="non-scaling-stroke"
-            class="stroke-current	text-yellow-400"
+            class="stroke-current	text-secondary"
             fill="none"
             d="M38,-45.4C53.9,-32,74.4,-24.4,78.5,-12.2C82.5,-0.1,70,16.6,59.4,33.6C48.7,50.7,40,68.2,27.4,70.9C14.8,73.6,-1.6,61.5,-17.5,53.4C-33.3,45.3,-48.6,41.1,-58,30.7C-67.3,20.2,-70.8,3.6,-69.2,-13.4C-67.6,-30.3,-61,-47.6,-48.7,-61.6C-36.3,-75.6,-18.1,-86.4,-3.5,-82.2C11.1,-78,22.2,-58.8,38,-45.4Z"
             transform="translate(50 100)"
@@ -38,7 +38,7 @@
           <path
             id="blob1"
             vector-effect="non-scaling-stroke"
-            class="fill-current	text-yellow-400"
+            class="fill-current	text-secondary"
             d="M34.4,-46.7C43.5,-40.8,49.1,-29.3,56.7,-16C64.4,-2.7,74.2,12.3,71.9,24.6C69.6,36.9,55.2,46.6,41.2,51.5C27.2,56.5,13.6,56.8,0.9,55.6C-11.8,54.3,-23.5,51.4,-35.7,45.9C-48,40.3,-60.6,32.1,-65.1,20.6C-69.6,9.2,-65.8,-5.5,-62.6,-21.9C-59.4,-38.3,-56.8,-56.5,-46.5,-62.1C-36.2,-67.7,-18.1,-60.6,-2.7,-56.9C12.7,-53.1,25.3,-52.7,34.4,-46.7Z"
             transform="translate(30 100)"
           >

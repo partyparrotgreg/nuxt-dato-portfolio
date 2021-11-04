@@ -12,7 +12,7 @@
       </div>
       <div class="w-full lg:w-1/2">
         <div class="aspect-w-5 aspect-h-3 overflow-hidden">
-          <figure>
+          <figure class="rounded-2xl overflow-hidden">
             <datocms-image :data="slice.image.responsiveImage" />
           </figure>
         </div>

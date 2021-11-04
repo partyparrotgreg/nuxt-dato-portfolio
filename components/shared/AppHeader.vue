@@ -1,6 +1,6 @@
 <template>
   <header
-    class="p-0 bg-white sm:bg-transparent px-0 sm:px-6 lg:px-12 hover:bg-white fixed left-0 right-0 bottom-0 sm:top-0 w-full sm:h-20 flex align-middle justify-center items-center transition-none"
+    class="transition-all p-0 bg-white sm:bg-transparent px-0 sm:px-6 lg:px-12 hover:bg-white fixed left-0 right-0 bottom-0 sm:top-0 w-full sm:h-20 flex align-middle justify-center items-center transition-none"
     style="z-index: 999;"
   >
     <nav class="flex flex-row justify-between font-medium w-full">
@@ -13,11 +13,6 @@
           to="/"
           >Projects</nuxt-link
         >
-        <!-- <nuxt-link
-          class="py-4 text-sm sm:text-base sm:p-0 flex-grow sm:flex-shrink text-center sm:text-left"
-          to="/braindump"
-          >Braindump</nuxt-link
-        > -->
         <nuxt-link
           class="py-4 text-sm sm:text-base sm:p-0 flex-grow sm:flex-shrink text-center sm:text-left"
           to="/blog"

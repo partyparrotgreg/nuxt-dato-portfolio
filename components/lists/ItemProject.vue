@@ -1,10 +1,12 @@
 <template>
   <article>
     <nuxt-link
-      class="w-full lg:w-1/2 flex sm:justify-center sm:align-middle sm:items-center"
+      class="w-full lg:w-1/2 flex sm:justify-center sm:align-middle sm:items-center "
       :to="`/projects/${project.slug}`"
     >
-      <figure>
+      <figure
+        class="rounded-2xl overflow-hidden hover:scale-105 transform transition-all ease-out duration-500 hover:shadow-xl project-cover"
+      >
         <datocms-image :data="project.cover.responsiveImage" />
       </figure>
     </nuxt-link>
@@ -32,4 +34,4 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss"></style>
