@@ -8,66 +8,79 @@
 
 
 @media screen and (min-width: 640px) {
-html {
+  html {
     /* padding-right: calc(15px - (100vw - 100%)); */
-}
+  }
 }
 
 body {
   overflow-x: hidden;
+  @apply bg-white;
 }
 
-body, html {
-    @apply font-sans;
-    font-size: 18px;
-    @apply text-black;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+body,
+html {
+  @apply font-sans;
+  font-size: 18px;
+  @apply text-black;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
 a {
-    text-decoration: none;
-    @apply transition-all;
-    @apply duration-300;
-    @apply ease-in-out;
+  text-decoration: none;
+  @apply transition-all;
+  @apply duration-300;
+  @apply ease-in-out;
 }
+
 a:hover {
-    @apply text-primary;
+  @apply text-primary;
 }
+
 img {
   @apply transition-all;
-    @apply duration-300;
-    @apply ease-in-out;
+  @apply duration-300;
+  @apply ease-in-out;
 }
-a:hover > img {
+
+a:hover>img {
   @apply scale-110;
 }
 
 
-a.nuxt-link-active {
-  
-}
+a.nuxt-link-active {}
+
 /* exact link will show the primary color for only the exact matching link */
 a.nuxt-link-exact-active {
   @apply text-primary
- 
 }
 
 .slide-bottom-enter-active,
 .slide-bottom-leave-active {
   transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
 }
+
 .slide-bottom-enter,
 .slide-bottom-leave-to {
   opacity: 0;
   transform: translate3d(0, 15px, 0);
 }
 
-.prose > p, .prose-xs > p, .prose-sm > p, .prose-xl > p{
+.prose>p,
+.prose-xs>p,
+.prose-sm>p,
+.prose-xl>p {
   @apply mb-2;
 }

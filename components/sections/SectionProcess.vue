@@ -1,10 +1,8 @@
 <template>
-  <div
-    class="bg-primary section-process p-8 2xl:p-32 sm:p-16 text-primary-light"
-  >
+  <div class="bg-primary section-process p-8 2xl:p-32 sm:p-16 text-black">
     <div class="max-w-prose">
       <small class="opacity-50">{{ slice.callout }}</small>
-      <h2 class="text-xl sm:text-3xl font-semibold -mx-1 mb-2 text-white">
+      <h2 class="text-xl sm:text-3xl font-semibold -mx-1 mb-2 text-black">
         {{ slice.title }}
       </h2>
       <div v-html="slice.description"></div>

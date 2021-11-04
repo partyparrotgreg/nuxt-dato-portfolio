@@ -6,7 +6,9 @@
       class="w-full lg:w-1/3 flex sm:justify-center sm:align-middle sm:items-center"
       :to="`/projects/${project.slug}`"
     >
-      <figure>
+      <figure
+        class="rounded-2xl overflow-hidden hover:scale-105 transform transition-all ease-out duration-500 hover:shadow-xl"
+      >
         <datocms-image :data="project.cover.responsiveImage" />
       </figure>
     </nuxt-link>
